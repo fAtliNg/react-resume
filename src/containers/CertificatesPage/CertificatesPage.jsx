@@ -1,13 +1,8 @@
 import React, {Component} from 'react';
 import {withRouter, hashHistory} from 'react-router'
 import {connect} from 'react-redux';
-import {Grid, Row, Col} from 'react-flexbox-grid';
 import Dialog from '../../components/Dialog/Dialog';
-import Divider from 'material-ui/Divider';
-import Slider  from 'react-slick';
-import {
-    grey900
-} from 'material-ui/styles/colors';
+import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import cert1 from '../../images/cert1.jpg';
@@ -31,7 +26,7 @@ class CertificatesPage extends Component {
     renderBody = () => {
         return <div>
             <Slider {...this.settings}>
-                <img src={cert1}/>
+                <img src={cert1} onLoad={() => {this.forceUpdate()}}/>
                 <img src={cert2}/>
                 <img src={cert3}/>
                 <img src={cert4}/>
