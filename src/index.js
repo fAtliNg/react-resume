@@ -30,7 +30,6 @@ if (module.hot) {
     // Whenever a new version of App.js is available
     module.hot.accept('./routes/Routes', function () {
         // Require the new version and render it instead
-        const NextRoutes = require('./routes/Routes');
         ReactDOM.render(
             <AppContainer>
                 <Provider store={store}>

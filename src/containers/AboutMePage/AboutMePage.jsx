@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withRouter, hashHistory} from 'react-router'
+import {withRouter} from 'react-router'
 import {connect} from 'react-redux';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import Dialog from '../../components/Dialog/Dialog';

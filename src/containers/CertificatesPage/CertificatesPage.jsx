@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withRouter, hashHistory} from 'react-router'
+import {withRouter} from 'react-router'
 import {connect} from 'react-redux';
 import Dialog from '../../components/Dialog/Dialog';
 import Slider from 'react-slick';
