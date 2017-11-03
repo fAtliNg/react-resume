@@ -1,11 +1,26 @@
-import {call, put, select, takeLatest, takeEvery, throttle} from 'redux-saga/effects';
-import {delay} from 'redux-saga';
+import {put, takeLatest} from 'redux-saga/effects';
 
-export function* test() {
+// HOME PAGE
+export function* fetchHomePageData() {
+    try {
+        yield put({
+            type: 'SET.HOMEPAGE.DATA',
+            payload: {
+                header: 'HELLO',
+                typists: [
+                    'I am Denisenko Sergey',
+                    'I am a developer',
+                    'I am a football player'
+                ]
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 export default function* root() {
     yield [
-        takeLatest('Test', test),
+        takeLatest('FETCH.HOMEPAGE.DATA', fetchHomePageData),
     ]
 }

@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import test from './test'
+import homePage from './homePage'
 
-const reducers = combineReducers({
-    reducer: test
+export default combineReducers({
+    homePage: homePage
 });
-
-export default reducers
