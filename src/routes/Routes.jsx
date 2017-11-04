@@ -3,7 +3,7 @@ import {Router, Route, IndexRoute, hashHistory, IndexRedirect} from 'react-route
 import App from '../components/App/App';
 import HomePage from '../containers/HomePage/HomePage';
 import AboutMePage from '../containers/AboutMePage/AboutMePage';
-import ResumePage from '../containers/ResumePage/ResumePage';
+import SkillsPage from '../containers/SkillsPage/SkillsPage';
 import ExperiencePage from '../containers/ExperiencePage/ExperiencePage';
 import CertificatesPage from '../containers/CertificatesPage/CertificatesPage';
 import ContactPage from '../containers/ContactPage/ContactPage';
@@ -20,7 +20,7 @@ const Routes = () => {
                     <IndexRoute component={AboutMePage}/>
                 </Route>
                 <Route path="skills">
-                    <IndexRoute component={ResumePage}/>
+                    <IndexRoute component={SkillsPage}/>
                 </Route>
                 <Route path="experience">
                     <IndexRoute component={ExperiencePage}/>

@@ -9,7 +9,7 @@ import {
 
 import {fetchSkillsPageData, clearSkillsPageData} from '../../actions/actions';
 
-class ResumePage extends Component {
+class SkillsPage extends Component {
     componentWillMount() {
         this.props.fetchSkillsPageData();
     }
@@ -48,4 +48,4 @@ export default connect(
         fetchSkillsPageData: () => dispatch(fetchSkillsPageData()),
         clearSkillsPageData: () => dispatch(clearSkillsPageData())
     })
-)(withRouter(ResumePage));
+)(withRouter(SkillsPage));
