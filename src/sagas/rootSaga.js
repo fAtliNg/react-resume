@@ -19,6 +19,30 @@ export function* fetchHomePageData() {
     }
 }
 
+// ABOUT ME PAGE
+export function* fetchAboutMePageData() {
+    try {
+        yield put({
+            type: 'SET.ABOUTMEPAGE.DATA',
+            payload: {
+                personalInfo: {
+                    Name: 'Denisenko Sergey',
+                    Age: '20 years',
+                    City: 'Rostov-on-Don',
+                    Job: 'Developer',
+                    Phone: '+7(918)-503-65-50',
+                    Email: 'korgeflus@mail.ru'
+                },
+                hobby: 'I love to play football.',
+                quote: 'Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.',
+                photo: 'http://denisenkosergey.ru/static/media/Y3ztIf9ai5U.7e25813a.jpg'
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 // SKILLS PAGE
 export function* fetchSkillsPageData() {
     try {
@@ -79,6 +103,9 @@ export default function* root() {
     yield [
         // HOME PAGE
         takeLatest('FETCH.HOMEPAGE.DATA', fetchHomePageData),
+
+        // ABOUT ME PAGE
+        takeLatest('FETCH.ABOUTMEPAGE.DATA', fetchAboutMePageData),
 
         // SKILLS PAGE
         takeLatest('FETCH.SKILLSPAGE.DATA', fetchSkillsPageData),

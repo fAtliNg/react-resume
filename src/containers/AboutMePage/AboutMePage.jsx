@@ -4,41 +4,66 @@ import {connect} from 'react-redux';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import Dialog from '../../components/Dialog/Dialog';
 import Divider from 'material-ui/Divider';
-import Y3ztIf9ai5U from '../../images/Y3ztIf9ai5U.jpg';
 import {
     grey900
 } from 'material-ui/styles/colors';
 
+import {fetchAboutMePageData, clearAboutMePageData} from '../../actions/actions';
+
 class AboutMePage extends Component {
-    renderAboutMeLine = (key, value) => {
-        return <Row>
-            <Col lg={3} style={{fontWeight: "bold", marginBottom: 12}}>
-                {key}:
-            </Col>
-            <Col lg={9}>
-                {value}
-            </Col>
-        </Row>
+    componentWillMount() {
+        this.props.fetchAboutMePageData();
+    }
+
+    componentWillUnmount() {
+        this.props.clearAboutMePageData();
+    }
+
+    renderPersonInfo = () => {
+        const {personalInfo} = this.props.aboutMePage;
+        return Object.keys(personalInfo).map(key => (
+            <Row key={key}>
+                <Col lg={3} style={{fontWeight: "bold", marginBottom: 12}}>
+                    {key}:
+                </Col>
+                <Col lg={9}>
+                    {personalInfo[key]}
+                </Col>
+            </Row>
+
+        ));
     };
+
+    renderHobby = () => (
+        <div style={{marginBottom: 12}}>
+            <div style={{fontWeight: "bold"}}>Hobby:</div><br/>
+            {this.props.aboutMePage.hobby}
+        </div>
+    );
+
+    renderQuote = () => (
+        <div>
+            <div style={{fontWeight: "bold"}}>Favorite quote:</div><br/>
+            {this.props.aboutMePage.quote}
+        </div>
+    );
+
+    renderPhoto = () => (
+        <img src={this.props.aboutMePage.photo} style={{height: 600}}/>
+    );
+
     renderBody = () => {
         return <Grid fluid style={{marginTop: "2rem", color: grey900}}>
             <Row>
                 <Col lg={4}>
-                    {this.renderAboutMeLine('Name', 'Denisenko Sergey')}
-                    {this.renderAboutMeLine('Age', '25 years')}
-                    {this.renderAboutMeLine('City', 'Rostov-on-Don')}
-                    {this.renderAboutMeLine('Job', 'Developer')}
-                    {this.renderAboutMeLine('Phone', '(+7)918-503-65-50')}
-                    {this.renderAboutMeLine('Email', 'korgeflus@mail.ru')}
+                    {this.renderPersonInfo()}
                     <Divider style={{backgroundColor: grey900, marginBottom: 30}}/>
-                    <div style={{fontWeight: "bold"}}>Hobby:</div><br/>
-                    <div style={{marginBottom: 12}}>I love to play football.</div>
+                    {this.renderHobby()}
                     <Divider style={{backgroundColor: grey900, marginBottom: 30}}/>
-                    <div style={{fontWeight: "bold"}}>Favorite quote:</div><br/>
-                    Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.
+                    {this.renderQuote()}
                 </Col>
                 <Col lg={8}>
-                    <img src={Y3ztIf9ai5U} style={{height:600  }}/>
+                    {this.renderPhoto()}
                 </Col>
             </Row>
         </Grid>
@@ -46,15 +71,16 @@ class AboutMePage extends Component {
 
     render() {
         const {} = this.props;
-        return (
-            <div>
-                <Dialog title="About Me" body={this.renderBody()}/>
-            </div>
-        )
+        return (<Dialog title="About Me" body={this.renderBody()}/>)
     }
 }
 
 export default connect(
-    state => ({}),
-    dispatch => ({})
+    state => ({
+        aboutMePage: state.aboutMePage
+    }),
+    dispatch => ({
+        fetchAboutMePageData: () => dispatch(fetchAboutMePageData()),
+        clearAboutMePageData: () => dispatch(clearAboutMePageData())
+    })
 )(withRouter(AboutMePage));
