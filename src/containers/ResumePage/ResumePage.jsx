@@ -7,46 +7,45 @@ import {
     grey900
 } from 'material-ui/styles/colors';
 
+import {fetchSkillsPageData, clearSkillsPageData} from '../../actions/actions';
+
 class ResumePage extends Component {
-    renderResumeLine = (key, value) => {
-        return <Row>
-            <Col lg={4} style={{fontWeight: "bold", marginBottom: 12}}>
-                {key}:
-            </Col>
-            <Col lg={8}>
-                {value}
-            </Col>
-        </Row>
-    };
+    componentWillMount() {
+        this.props.fetchSkillsPageData();
+    }
+
+    componentWillUnmount() {
+        this.props.clearSkillsPageData();
+    }
+
     renderBody = () => {
+        const {skills} = this.props.skillsPage;
         return <Grid fluid style={{marginTop: "2rem", color: grey900}}>
-            <Row>
-                <Col lg={12}>
-                    {this.renderResumeLine('C++', 'Qt, boost, STL')}
-                    {this.renderResumeLine('Java', 'Maven, Jetty, JUnit')}
-                    {this.renderResumeLine('Python', 'Flask, Django, Selenium, Unittest')}
-                    {this.renderResumeLine('Information Security', 'SQL Injection, XSS, same-origin policy, CSRF')}
-                    {this.renderResumeLine('DATABASE', 'SQLite, MySQL, MongoDB, PostgreSQL')}
-                    {this.renderResumeLine('WEB', 'JSON, XML, HTML, CSS, MVC, AJAX')}
-                    {this.renderResumeLine('OS/Servers', 'Windows, Linux, Apache, nginx')}
-                    {this.renderResumeLine('Continuous Integration', 'TeamCity')}
-                    {this.renderResumeLine('Other', 'OOP, Agile, SCRUM, Git, Jira, English')}
-                </Col>
-            </Row>
+            {Object.keys(skills).map(key => (
+                <Row key={key}>
+                    <Col lg={4} style={{fontWeight: "bold", marginBottom: 12}}>
+                        {key}:
+                    </Col>
+                    <Col lg={8}>
+                        {skills[key].join(', ')}
+                    </Col>
+                </Row>
+            ))}
         </Grid>
     };
 
     render() {
         const {} = this.props;
-        return (
-            <div>
-                <Dialog title="Skills" body={this.renderBody()}/>
-            </div>
-        )
+        return (<Dialog title="Skills" body={this.renderBody()}/>)
     }
 }
 
 export default connect(
-    state => ({}),
-    dispatch => ({})
+    state => ({
+        skillsPage: state.skillsPage
+    }),
+    dispatch => ({
+        fetchSkillsPageData: () => dispatch(fetchSkillsPageData()),
+        clearSkillsPageData: () => dispatch(clearSkillsPageData())
+    })
 )(withRouter(ResumePage));
