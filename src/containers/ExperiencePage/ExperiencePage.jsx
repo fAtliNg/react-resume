@@ -8,9 +8,19 @@ import {
     grey900
 } from 'material-ui/styles/colors';
 
+import {fetchExperiencePageData, clearExperiencePageData} from '../../actions/actions';
+
 class ExperiencePage extends Component {
-    renderExperienceLine = (key, value) => {
-        return <Row>
+    componentWillMount() {
+        this.props.fetchExperiencePageData();
+    }
+
+    componentWillUnmount() {
+        this.props.clearExperiencePageData();
+    }
+
+    renderExperienceLine = (key, value) => (
+        <Row>
             <Col lg={3} style={{fontWeight: "bold", marginBottom: 12}}>
                 {key}:
             </Col>
@@ -18,33 +28,35 @@ class ExperiencePage extends Component {
                 {value}
             </Col>
         </Row>
-    };
-    renderBody = () => {
-        return <Grid fluid style={{marginTop: "2rem", color: grey900}}>
-            <Row>
-                <Col lg={12}>
-                    2015 – present
-                    <Divider style={{marginBottom: 12}}/>
-                    {this.renderExperienceLine('Company', 'ФГАНУ НИИ "Спецвузавтоматика"')}
-                    {this.renderExperienceLine('Position', 'Software Developer')}
-                    {/*{this.renderExperienceLine('Description', '12123')}*/}
-                    {/*{this.renderExperienceLine('Project role', '12123')}*/}
-                </Col>
-            </Row>
+    );
+
+    renderBody = firms => (
+        <Grid fluid style={{marginTop: "2rem", color: grey900}}>
+            {firms.map(firm => (
+                <Row key={firm}>
+                    <Col lg={12}>
+                        {firm.period}
+                        <Divider style={{marginBottom: 12}}/>
+                        {this.renderExperienceLine('Company', firm.company)}
+                        {this.renderExperienceLine('Position', firm.position)}
+                    </Col>
+                </Row>
+            ))}
         </Grid>
-    };
+    );
 
     render() {
-        const {} = this.props;
-        return (
-            <div>
-                <Dialog title="Experience" body={this.renderBody()}/>
-            </div>
-        )
+        const {firms} = this.props.experiencePage;
+        return (<Dialog title="Experience" body={this.renderBody(firms)}/>)
     }
 }
 
 export default connect(
-    state => ({}),
-    dispatch => ({})
+    state => ({
+        experiencePage: state.experiencePage
+    }),
+    dispatch => ({
+        fetchExperiencePageData: () => dispatch(fetchExperiencePageData()),
+        clearExperiencePageData: () => dispatch(clearExperiencePageData())
+    })
 )(withRouter(ExperiencePage));

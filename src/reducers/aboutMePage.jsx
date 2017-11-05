@@ -20,10 +20,7 @@ export default (state = initialState, action) => {
             };
             break;
         case 'CLEAR.ABOUTMEPAGE.DATA':
-            return {
-                ...initialState,
-                state: 'initial'
-            };
+            return initialState;
             break;
         default:
             return state;

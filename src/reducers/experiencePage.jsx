@@ -1,23 +1,23 @@
 const initialState = {
-    skills: [],
+    firms: [],
     state: 'initial'
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'FETCH.SKILLSPAGE.DATA':
+        case 'FETCH.EXPERIENCEPAGE.DATA':
             return {
                 ...state,
                 state: 'receiving'
             };
             break;
-        case 'SET.SKILLSPAGE.DATA':
+        case 'SET.EXPERIENCEPAGE.DATA':
             return {
                 ...action.payload,
                 state: 'is_established'
             };
             break;
-        case 'CLEAR.SKILLSPAGE.DATA':
+        case 'CLEAR.EXPERIENCEPAGE.DATA':
             return initialState;
             break;
         default:

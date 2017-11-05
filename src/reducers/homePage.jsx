@@ -19,10 +19,7 @@ export default (state = initialState, action) => {
             };
             break;
         case 'CLEAR.HOMEPAGE.DATA':
-            return {
-                ...initialState,
-                state: 'initial'
-            };
+            return initialState;
             break;
         default:
             return state;
