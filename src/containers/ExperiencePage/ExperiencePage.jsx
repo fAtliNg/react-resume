@@ -4,9 +4,7 @@ import {connect} from 'react-redux';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import Dialog from '../../components/Dialog/Dialog';
 import Divider from 'material-ui/Divider';
-import {
-    grey900
-} from 'material-ui/styles/colors';
+import {grey900} from 'material-ui/styles/colors';
 
 import {fetchExperiencePageData, clearExperiencePageData} from '../../actions/actions';
 

@@ -14,7 +14,7 @@ class Typists extends Component {
 
     render() {
         const {typists} = this.props;
-        if (typists.length == 0) return null;
+        if (typists.length === 0) return null;
         return (
             <Typist cursor={{show: false}} onLineTyped={() => {
                 this.setState({typistId: this.state.typistId+1});

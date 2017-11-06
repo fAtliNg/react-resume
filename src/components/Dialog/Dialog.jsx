@@ -8,8 +8,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 import {
     grey200,
-    grey900,
-    deepOrange400
+    grey900
 } from 'material-ui/styles/colors';
 
 class DialogCustom extends Component {

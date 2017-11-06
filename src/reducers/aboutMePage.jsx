@@ -6,23 +6,25 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+    let newState = state;
     switch (action.type) {
         case 'FETCH.ABOUTMEPAGE.DATA':
-            return {
+            newState = {
                 ...state,
                 state: 'receiving'
             };
             break;
         case 'SET.ABOUTMEPAGE.DATA':
-            return {
+            newState = {
                 ...action.payload,
                 state: 'is_established'
             };
             break;
         case 'CLEAR.ABOUTMEPAGE.DATA':
-            return initialState;
+            newState = initialState;
             break;
         default:
-            return state;
+            // no default
     }
+    return newState;
 }

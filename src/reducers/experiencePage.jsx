@@ -4,23 +4,25 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+    let newState = state;
     switch (action.type) {
         case 'FETCH.EXPERIENCEPAGE.DATA':
-            return {
+            newState = {
                 ...state,
                 state: 'receiving'
             };
             break;
         case 'SET.EXPERIENCEPAGE.DATA':
-            return {
+            newState = {
                 ...action.payload,
                 state: 'is_established'
             };
             break;
         case 'CLEAR.EXPERIENCEPAGE.DATA':
-            return initialState;
+            newState = initialState;
             break;
         default:
-            return state;
+            // no default
     }
+    return newState;
 }

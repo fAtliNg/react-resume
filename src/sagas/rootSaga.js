@@ -1,5 +1,5 @@
 import {put, takeLatest} from 'redux-saga/effects';
-import {setHomePageData, setAboutMePageData, setSkillsPageData, setExperiencePageData} from "../actions/actions";
+import {setHomePageData, setAboutMePageData, setSkillsPageData, setExperiencePageData, setCertificatesPageData} from "../actions/actions";
 
 // HOME PAGE
 export function* fetchHomePageData() {
@@ -106,6 +106,25 @@ export function* fetchExperiencePageData() {
     }
 }
 
+// CERTIFICATES PAGE
+export function* fetchCertificatesPageData() {
+    try {
+        yield put(setCertificatesPageData({
+            certificates: [
+                'http://denisenkosergey.ru/static/media/cert1.fec8dd75.jpg',
+                'http://denisenkosergey.ru/static/media/cert2.1cb48a09.jpg',
+                'http://denisenkosergey.ru/static/media/cert3.7fe32841.jpg',
+                'http://denisenkosergey.ru/static/media/cert4.98aad050.jpg',
+                'http://denisenkosergey.ru/static/media/cert5.c50120fc.jpg'
+            ]
+        }));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
+
 export default function* root() {
     yield [
         // HOME PAGE
@@ -119,5 +138,8 @@ export default function* root() {
 
         // EXPERIENCE PAGE
         takeLatest('FETCH.EXPERIENCEPAGE.DATA', fetchExperiencePageData),
+
+        // CERTIFICATES PAGE
+        takeLatest('FETCH.CERTIFICATESPAGE.DATA', fetchCertificatesPageData),
     ]
 }

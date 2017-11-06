@@ -53,3 +53,17 @@ export const setExperiencePageData = payload => ({
 export const clearExperiencePageData = () => ({
     type: 'CLEAR.EXPERIENCEPAGE.DATA'
 });
+
+// CERTIFICATES PAGE
+export const fetchCertificatesPageData = () => ({
+    type: 'FETCH.CERTIFICATESPAGE.DATA'
+});
+
+export const setCertificatesPageData = payload => ({
+    type: 'SET.CERTIFICATESPAGE.DATA',
+    payload: payload
+});
+
+export const clearCertificatesPageData = () => ({
+    type: 'CLEAR.CERTIFICATESPAGE.DATA'
+});

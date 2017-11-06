@@ -3,10 +3,12 @@ import homePage from './homePage'
 import aboutMePage from './aboutMePage'
 import skillsPage from './skillsPage'
 import experiencePage from './experiencePage'
+import certificatesPage from './certificatesPage'
 
 export default combineReducers({
     homePage: homePage,
     aboutMePage: aboutMePage,
     skillsPage: skillsPage,
-    experiencePage: experiencePage
+    experiencePage: experiencePage,
+    certificatesPage: certificatesPage
 });
