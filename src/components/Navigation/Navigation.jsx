@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Drawer} from 'material-ui';
 import Avatar from 'material-ui/Avatar';
 import { withRouter } from 'react-router'
-
 import MenuItem from './MenuItem';
+import config from '../../config';
 
 import {
     grey900,
@@ -19,7 +19,7 @@ class Navigation extends Component {
         return (
             <div>
                 <Drawer width={200} open={true} containerStyle={this.navigationStyle}>
-                    <Avatar size={200} style={{overflow: "hidden"}} src="static/media/avatar.jpg"/>
+                    <Avatar size={200} style={{overflow: "hidden"}} src={`${config.url}static/img/avatar.jpg`}/>
                     <MenuItem
                         url="/home/"
                         icon="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"

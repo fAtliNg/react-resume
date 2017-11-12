@@ -3,8 +3,8 @@ import {withRouter} from 'react-router'
 import {connect} from 'react-redux';
 import Dialog from '../../components/Dialog/Dialog';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import {fetchCertificatesPageData, clearCertificatesPageData} from "../../actions/actions";
 
 class CertificatesPage extends Component {
@@ -18,13 +18,11 @@ class CertificatesPage extends Component {
 
     settings = {
         dots: true,
+        fade: true,
         infinite: true,
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        adaptiveHeight: true,
-        arrows: false
     };
 
     renderBody = certificates => (

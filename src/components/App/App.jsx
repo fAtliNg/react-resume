@@ -1,5 +1,6 @@
 import React from 'react'
 import Navigation from '../Navigation/Navigation';
+import EasterEgg from '../../components/EasterEgg/EasterEgg';
 import video from '../../containers/HomePage/video.mp4';
 
 let backgroundStyle = {
@@ -19,6 +20,7 @@ export default props => (
             <source src={video} type="video/mp4"/>
             <source src={video} type="video/ogg"/>
         </video>
+        <EasterEgg/>
         <div className={"app"} style={{marginLeft: 200, right: 0}}>
             {props.children}
         </div>

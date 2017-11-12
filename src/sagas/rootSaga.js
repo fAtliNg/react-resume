@@ -31,7 +31,7 @@ export function* fetchAboutMePageData() {
             },
             hobby: 'I love to play football.',
             quote: 'Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.',
-            photo: 'http://denisenkosergey.ru/static/media/Y3ztIf9ai5U.7e25813a.jpg'
+            photo: `static/img/photo.jpg`
         }));
     } catch (e) {
         console.log(e);
@@ -111,11 +111,11 @@ export function* fetchCertificatesPageData() {
     try {
         yield put(setCertificatesPageData({
             certificates: [
-                'http://denisenkosergey.ru/static/media/cert1.fec8dd75.jpg',
-                'http://denisenkosergey.ru/static/media/cert2.1cb48a09.jpg',
-                'http://denisenkosergey.ru/static/media/cert3.7fe32841.jpg',
-                'http://denisenkosergey.ru/static/media/cert4.98aad050.jpg',
-                'http://denisenkosergey.ru/static/media/cert5.c50120fc.jpg'
+                `static/img/cert1.jpg`,
+                `static/img/cert2.jpg`,
+                `static/img/cert3.jpg`,
+                `static/img/cert4.jpg`,
+                `static/img/cert5.jpg`
             ]
         }));
     } catch (e) {
