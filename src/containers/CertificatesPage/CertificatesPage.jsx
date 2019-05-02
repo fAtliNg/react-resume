@@ -1,11 +1,14 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router'
-import {connect} from 'react-redux';
-import Dialog from '../../components/Dialog/Dialog';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux';
+
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import {fetchCertificatesPageData, clearCertificatesPageData} from "../../actions/actions";
+// import "slick-carousel/slick/slick.cs";
+// import "slick-carousel/slick/slick-theme.css";
+
+import Dialog from '../../components/Dialog/Dialog';
+
+import { fetchCertificatesPageData, clearCertificatesPageData } from '../../actions';
 
 class CertificatesPage extends Component {
     componentWillMount() {

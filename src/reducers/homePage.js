@@ -1,29 +1,31 @@
+import { ACTION_NAMES } from '../constants';
+
 const initialState = {
     header: '',
     typists: [],
-    state: 'initial'
+    state: 'initial',
 };
 
 export default (state = initialState, action) => {
     let newState = state;
     switch (action.type) {
-        case 'FETCH.HOMEPAGE.DATA':
+        case ACTION_NAMES.FETCH_HOME_PAGE_DATA:
             newState = {
                 ...state,
-                state: 'receiving'
+                state: 'receiving',
             };
             break;
-        case 'SET.HOMEPAGE.DATA':
+        case ACTION_NAMES.SET_HOME_PAGE_DATA:
             newState = {
                 ...action.payload,
-                state: 'is_established'
+                state: 'is_established',
             };
             break;
-        case 'CLEAR.HOMEPAGE.DATA':
+        case ACTION_NAMES.CLEAR_HOME_PAGE_DATA:
             newState = initialState;
             break;
         default:
             // no default
     }
     return newState;
-}
+};

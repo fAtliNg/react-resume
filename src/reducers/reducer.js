@@ -1,4 +1,6 @@
+// TODO:: вообще все reducers кажутся одинаковыми, поэтому возможно стоит сделать механизм генерации дня них
 import { combineReducers } from 'redux'
+
 import homePage from './homePage'
 import aboutMePage from './aboutMePage'
 import skillsPage from './skillsPage'
@@ -10,5 +12,5 @@ export default combineReducers({
     aboutMePage: aboutMePage,
     skillsPage: skillsPage,
     experiencePage: experiencePage,
-    certificatesPage: certificatesPage
+    certificatesPage: certificatesPage,
 });

@@ -1,28 +1,30 @@
+import { ACTION_NAMES } from '../constants';
+
 const initialState = {
-    firms: [],
-    state: 'initial'
+    skills: [],
+    state: 'initial',
 };
 
 export default (state = initialState, action) => {
     let newState = state;
     switch (action.type) {
-        case 'FETCH.EXPERIENCEPAGE.DATA':
+        case ACTION_NAMES.FETCH_SKILLS_PAGE_DATA:
             newState = {
                 ...state,
-                state: 'receiving'
+                state: 'receiving',
             };
             break;
-        case 'SET.EXPERIENCEPAGE.DATA':
+        case ACTION_NAMES.SET_SKILLS_PAGE_DATA:
             newState = {
                 ...action.payload,
-                state: 'is_established'
+                state: 'is_established',
             };
             break;
-        case 'CLEAR.EXPERIENCEPAGE.DATA':
+        case ACTION_NAMES.CLEAR_SKILLS_PAGE_DATA:
             newState = initialState;
             break;
         default:
             // no default
     }
     return newState;
-}
+};

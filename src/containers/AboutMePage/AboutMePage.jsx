@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router'
-import {connect} from 'react-redux';
-import {Grid, Row, Col} from 'react-flexbox-grid';
-import Dialog from '../../components/Dialog/Dialog';
-import Divider from 'material-ui/Divider';
-import {
-    grey900
-} from 'material-ui/styles/colors';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux';
 
-import {fetchAboutMePageData, clearAboutMePageData} from '../../actions/actions';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import Divider from 'material-ui/Divider';
+import { grey900 } from 'material-ui/styles/colors';
+
+import Dialog from '../../components/Dialog/Dialog';
+
+import { fetchAboutMePageData, clearAboutMePageData } from '../../actions';
 
 class AboutMePage extends Component {
     componentWillMount() {

@@ -1,13 +1,15 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router'
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux';
+
 import {
     grey200,
     grey900,
 } from 'material-ui/styles/colors';
 
 import Typists from '../../components/Typists/Typists';
-import {fetchHomePageData, clearHomePageData} from '../../actions/actions';
+
+import { fetchHomePageData, clearHomePageData } from '../../actions';
 
 class HomePage extends Component {
     constructor(props) {

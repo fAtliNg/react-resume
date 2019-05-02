@@ -1,28 +1,30 @@
+import { ACTION_NAMES } from '../constants';
+
 const initialState = {
-    certificates: [],
-    state: 'initial'
+    firms: [],
+    state: 'initial',
 };
 
 export default (state = initialState, action) => {
     let newState = state;
     switch (action.type) {
-        case 'FETCH.CERTIFICATESPAGE.DATA':
+        case ACTION_NAMES.FETCH_EXPERIENCE_PAGE_DATA:
             newState = {
                 ...state,
-                state: 'receiving'
+                state: 'receiving',
             };
             break;
-        case 'SET.CERTIFICATESPAGE.DATA':
+        case ACTION_NAMES.SET_EXPERIENCE_PAGE_DATA:
             newState = {
                 ...action.payload,
-                state: 'is_established'
+                state: 'is_established',
             };
             break;
-        case 'CLEAR.CERTIFICATESPAGE.DATA':
+        case ACTION_NAMES.CLEAR_EXPERIENCE_PAGE_DATA:
             newState = initialState;
             break;
         default:
             // no default
     }
     return newState;
-}
+};
