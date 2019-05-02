@@ -8,27 +8,29 @@ import ExperiencePage from '../containers/ExperiencePage/ExperiencePage';
 import CertificatesPage from '../containers/CertificatesPage/CertificatesPage';
 import ContactPage from '../containers/ContactPage/ContactPage';
 
+import { ROUTES } from '../constants/routes';
+
 const Routes = () => {
     return (
         <Router history={hashHistory}>
             <Route path="/" component={App}>
-                <IndexRedirect to="/home"/>
-                <Route path="home">
+                <IndexRedirect to={ROUTES.HOME}/>
+                <Route path={ROUTES.HOME}>
                     <IndexRoute component={HomePage}/>
                 </Route>
-                <Route path="aboutme">
+                <Route path={ROUTES.ABOUT_ME}>
                     <IndexRoute component={AboutMePage}/>
                 </Route>
-                <Route path="skills">
+                <Route path={ROUTES.SKILLS}>
                     <IndexRoute component={SkillsPage}/>
                 </Route>
-                <Route path="experience">
+                <Route path={ROUTES.EXPERIENCE}>
                     <IndexRoute component={ExperiencePage}/>
                 </Route>
-                <Route path="certificates">
+                <Route path={ROUTES.CERTIFICATES}>
                     <IndexRoute component={CertificatesPage}/>
                 </Route>
-                <Route path="contact">
+                <Route path={ROUTES.CONTACT}>
                     <IndexRoute component={ContactPage}/>
                 </Route>
             </Route>

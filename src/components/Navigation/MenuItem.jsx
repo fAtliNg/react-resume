@@ -12,7 +12,6 @@ import {
 
 class MenuItem extends Component {
     redirect = (url) => {
-        console.log(url);
         hashHistory.push(url);
     };
 
