@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {hashHistory} from 'react-router';
-import FlatButton from 'material-ui/FlatButton';
-import Divider from 'material-ui/Divider';
-import SvgIcon from 'material-ui/SvgIcon';
+import {withRouter, hashHistory} from 'react-router'
+
+import {FlatButton, Divider, SvgIcon} from 'material-ui';
 import {
     grey300,
     grey800,
@@ -30,10 +29,10 @@ class MenuItem extends Component {
     };
 
     render() {
-        const {url, label, icon, active} = this.props;
+        const {url, label, icon, location} = this.props;
         return (
             <div>
-                { active &&
+                { location.pathname === url &&
                     <div style={{zIndex: 2, position: "absolute", right: 0, width: 4, height: 62, backgroundColor: deepOrange400}}/>
                 }
 
@@ -52,4 +51,4 @@ class MenuItem extends Component {
     }
 }
 
-export default MenuItem;
+export default withRouter(MenuItem);
