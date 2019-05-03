@@ -8,6 +8,8 @@ import {
     setCertificatesPageData,
 } from '../actions';
 
+import { ROUTES } from '../constants/routes';
+
 // HOME PAGE
 export function* fetchHomePageData() {
     try {
@@ -38,7 +40,7 @@ export function* fetchAboutMePageData() {
             },
             hobby: 'I love to play football.',
             quote: 'Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.',
-            photo: `static/img/photo.jpg`
+            photo: `${ROUTES.STATIC}/img/photo.jpg`
         }));
     } catch (e) {
         console.log(e);
@@ -118,11 +120,11 @@ export function* fetchCertificatesPageData() {
     try {
         yield put(setCertificatesPageData({
             certificates: [
-                `static/img/cert1.jpg`,
-                `static/img/cert2.jpg`,
-                `static/img/cert3.jpg`,
-                `static/img/cert4.jpg`,
-                `static/img/cert5.jpg`
+                `${ROUTES.STATIC}/img/cert1.jpg`,
+                `${ROUTES.STATIC}/img/cert2.jpg`,
+                `${ROUTES.STATIC}/img/cert3.jpg`,
+                `${ROUTES.STATIC}/img/cert4.jpg`,
+                `${ROUTES.STATIC}/img/cert5.jpg`
             ]
         }));
     } catch (e) {

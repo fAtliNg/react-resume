@@ -11,7 +11,7 @@ import Dialog from '../../components/Dialog/Dialog';
 import { fetchAboutMePageData, clearAboutMePageData } from '../../actions';
 
 class AboutMePage extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchAboutMePageData();
     }
 

@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Drawer, Avatar} from 'material-ui';
-import {grey900} from 'material-ui/styles/colors';
+import { Drawer, Avatar } from 'material-ui';
+import { grey900 } from 'material-ui/styles/colors';
 
 import MenuItem from './MenuItem';
 
