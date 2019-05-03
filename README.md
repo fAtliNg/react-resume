@@ -14,5 +14,6 @@ Then, in order to generate bundle.js file you will need to run:
 2. https://github.com/fAtliNg/react-resume/issues/3
 3. https://github.com/fAtliNg/react-resume/issues/4
 4. https://github.com/fAtliNg/react-resume/issues/5
+5. https://github.com/fAtliNg/react-resume/issues/6
 ## Demo
 http://denisenkosergey.ru
