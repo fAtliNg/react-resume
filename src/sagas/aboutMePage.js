@@ -8,7 +8,7 @@ export function* fetchAboutMePageData() {
         yield put(setAboutMePageData({
             personalInfo: {
                 Name: 'Denisenko Sergey',
-                Age: '20 years',
+                Age: '26 years',
                 City: 'Rostov-on-Don',
                 Job: 'Developer',
                 Phone: '+7(918)-503-65-50',

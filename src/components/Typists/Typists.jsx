@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Typist from 'react-typist';
-import {
-    grey200
-} from 'material-ui/styles/colors';
+
+import * as styles from './styles';
 
 class Typists extends Component {
     constructor(props) {
@@ -10,19 +9,21 @@ class Typists extends Component {
         this.state = {
             typistId: 0
         };
-    };
+    }
+
+    onLineTyped = () => {
+        this.setState({typistId: this.state.typistId+1});
+    }
 
     render() {
-        const {typists} = this.props;
+        const { typists } = this.props;
         if (typists.length === 0) return null;
         return (
-            <Typist cursor={{show: false}} onLineTyped={() => {
-                this.setState({typistId: this.state.typistId+1});
-            }}>
-                <b style={{fontSize: 60, color: grey200}}>{typists[this.state.typistId]}</b>
+            <Typist cursor={{show: false}} onLineTyped={this.onLineTyped}>
+                <b style={styles.typist}>{typists[this.state.typistId]}</b>
             </Typist>
         );
-    };
+    }
 }
 
 export default Typists;

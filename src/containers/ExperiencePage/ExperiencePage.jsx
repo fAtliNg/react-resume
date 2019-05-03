@@ -10,8 +10,10 @@ import Dialog from '../../components/Dialog/Dialog';
 
 import { fetchExperiencePageData, clearExperiencePageData } from '../../actions';
 
+import * as styles from './styles';
+
 class ExperiencePage extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchExperiencePageData();
     }
 
@@ -21,7 +23,7 @@ class ExperiencePage extends Component {
 
     renderExperienceLine = (key, value) => (
         <Row>
-            <Col lg={3} style={{fontWeight: "bold", marginBottom: 12}}>
+            <Col lg={3} style={styles.col}>
                 {key}:
             </Col>
             <Col lg={9}>
@@ -31,12 +33,12 @@ class ExperiencePage extends Component {
     );
 
     renderBody = firms => (
-        <Grid fluid style={{marginTop: "2rem", color: grey900}}>
+        <Grid fluid style={styles.grid}>
             {firms.map(firm => (
                 <Row key={firm}>
                     <Col lg={12}>
                         {firm.period}
-                        <Divider style={{marginBottom: 12}}/>
+                        <Divider style={styles.divider}/>
                         {this.renderExperienceLine('Company', firm.company)}
                         {this.renderExperienceLine('Position', firm.position)}
                     </Col>
@@ -46,17 +48,19 @@ class ExperiencePage extends Component {
     );
 
     render() {
-        const {firms} = this.props.experiencePage;
-        return (<Dialog title="Experience" body={this.renderBody(firms)}/>)
+        const { firms } = this.props.experiencePage;
+        return (
+            <Dialog title="Experience" body={this.renderBody(firms)}/>
+        );
     }
 }
 
 export default connect(
     state => ({
-        experiencePage: state.experiencePage
+        experiencePage: state.experiencePage,
     }),
     dispatch => ({
         fetchExperiencePageData: () => dispatch(fetchExperiencePageData()),
-        clearExperiencePageData: () => dispatch(clearExperiencePageData())
+        clearExperiencePageData: () => dispatch(clearExperiencePageData()),
     })
 )(withRouter(ExperiencePage));

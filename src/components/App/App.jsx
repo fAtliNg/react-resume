@@ -1,27 +1,20 @@
 import React from 'react'
+
 import Navigation from '../Navigation/Navigation';
 import EasterEgg from '../../components/EasterEgg/EasterEgg';
-import video from '../../containers/HomePage/video.mp4';
 
-let backgroundStyle = {
-    minWidth: "100%",
-    minHeight: "100%",
-    position: "fixed",
-    left: 200,
-    top: 0,
-    float: "left",
-    backgroundSize: "cover"
-};
+import { ROUTES } from '../../constants';
+
+import * as styles from './styles';
 
 export default props => (
     <div>
         <Navigation/>
-        <video autoPlay loop muted style={backgroundStyle}>
-            <source src={video} type="video/mp4"/>
-            <source src={video} type="video/ogg"/>
+        <video style={styles.backgroundStyle} autoPlay loop muted>
+            <source src={`${ROUTES.STATIC}/video/background.mp4`} type='video/mp4'/>
         </video>
         <EasterEgg/>
-        <div className={"app"} style={{marginLeft: 200, right: 0}}>
+        <div className="app" style={styles.main}>
             {props.children}
         </div>
     </div>

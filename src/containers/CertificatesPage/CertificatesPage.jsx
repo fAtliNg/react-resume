@@ -11,7 +11,7 @@ import Dialog from '../../components/Dialog/Dialog';
 import { fetchCertificatesPageData, clearCertificatesPageData } from '../../actions';
 
 class CertificatesPage extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchCertificates();
     }
 
@@ -19,33 +19,34 @@ class CertificatesPage extends Component {
         this.props.clearCertificates();
     }
 
-    settings = {
-        dots: true,
-        fade: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
-
-    renderBody = certificates => (
-        <Slider {...this.settings}>
-            {certificates.map(cert => (<img key={cert} src={cert}/>))}
-        </Slider>
-    );
+    renderBody = certificates => {
+        const settings = {
+            dots: true,
+            fade: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        };
+        return (
+            <Slider {...settings}>
+                {certificates.map(cert => (<img key={cert} src={cert}/>))}
+            </Slider>
+        );
+    }
 
     render() {
-        const {certificates} = this.props.certificatesPage;
+        const { certificates } = this.props.certificatesPage;
         return (certificates.length ? <Dialog title="Certificates" body={this.renderBody(certificates)}/> : null)
     }
 }
 
 export default connect(
     state => ({
-        certificatesPage: state.certificatesPage
+        certificatesPage: state.certificatesPage,
     }),
     dispatch => ({
         fetchCertificates: () => dispatch(fetchCertificatesPageData()),
-        clearCertificates: () => dispatch(clearCertificatesPageData())
-    })
+        clearCertificates: () => dispatch(clearCertificatesPageData()),
+    }),
 )(withRouter(CertificatesPage));

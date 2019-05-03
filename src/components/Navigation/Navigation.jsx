@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 
 import { Drawer, Avatar } from 'material-ui';
-import { grey900 } from 'material-ui/styles/colors';
-
 import MenuItem from './MenuItem';
 
 import { ROUTES, ICONS } from '../../constants';
 
-class Navigation extends Component {
-    navigationStyle = {
-        backgroundColor: grey900
-    };
+import * as styles from './styles';
 
+class Navigation extends Component {
     render() {
         return (
             <div>
-                <Drawer width={200} open={true} containerStyle={this.navigationStyle}>
-                    <Avatar size={200} style={{overflow: "hidden"}} src={`${ROUTES.STATIC}/img/avatar.jpg`}/>
+                <Drawer width={200} open={true} containerStyle={styles.navigationStyle}>
+                    <Avatar size={200} style={styles.avatar} src={`${ROUTES.STATIC}/img/avatar.jpg`}/>
                     <MenuItem
                         url={ROUTES.HOME}
                         icon={ICONS.HOME}

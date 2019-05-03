@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+import * as styles from './styles';
 
 class EasterEgg extends Component {
     constructor(props) {
@@ -39,8 +41,13 @@ class EasterEgg extends Component {
     };
 
     render() {
-        if (this.state.isShow)
-            return (<div style={{position: "fixed", top: "25%", left: "33%", zIndex: 2000}}><img src='https://i.giphy.com/4hnQDVKVARZ6w.gif'/></div>)
+        if (this.state.isShow) {
+            return (
+                <div style={styles.main}>
+                    <img src='https://i.giphy.com/4hnQDVKVARZ6w.gif'/>
+                </div>
+            );
+        }
         return null;
     }
 }

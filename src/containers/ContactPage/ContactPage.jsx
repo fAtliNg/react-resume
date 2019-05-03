@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 class ContactPage extends Component {
     render() {
-        const {} = this.props;
-
         return (
             <div>
                 <h1>ContactPage</h1>

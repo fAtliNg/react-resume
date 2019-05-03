@@ -1,6 +1,6 @@
 import * as redux from 'redux';
-import createSagaMiddleware, { END } from 'redux-saga'
-import reducer from '../reducers/reducer'
+import createSagaMiddleware, { END } from 'redux-saga';
+import reducer from '../reducers/reducer';
 
 export const configureStore = (initialState = {}) => {
     const sagaMiddleware = createSagaMiddleware();
@@ -24,4 +24,4 @@ export const configureStore = (initialState = {}) => {
     return store;
 };
 
-export default configureStore
+export default configureStore;
