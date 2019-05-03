@@ -44,7 +44,7 @@ class EasterEgg extends Component {
         if (this.state.isShow) {
             return (
                 <div style={styles.main}>
-                    <img src='https://i.giphy.com/4hnQDVKVARZ6w.gif'/>
+                    <img src='https://i.giphy.com/4hnQDVKVARZ6w.gif' alt="easter egg"/>
                 </div>
             );
         }

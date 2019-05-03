@@ -6,20 +6,14 @@ export function* fetchSkillsPageData() {
     try {
         yield put(setSkillsPageData({
             skills: {
-                'JAVA': [
-                    'core',
-                    'collections',
-                    'multithredings',
-                    'hibernet',
-                    'JUnit',
-                    'Maven',
-                ],
                 'JavaScript': [
                     'React',
                     'Redux',
                     'Redux Form',
                     'Saga',
                     'Material-UI',
+                    'Antd',
+                    'TS',
                 ],
                 'Python': [
                     'Flask',

@@ -49,7 +49,7 @@ class AboutMePage extends Component {
     );
 
     renderPhoto = () => (
-        <img src={this.props.aboutMePage.photo} style={styles.photo}/>
+        <img src={this.props.aboutMePage.photo} style={styles.photo} alt="Avatar"/>
     );
 
     renderBody = () => {

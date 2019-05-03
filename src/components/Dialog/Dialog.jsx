@@ -35,9 +35,10 @@ class DialogCustom extends Component {
     }
 
     render() {
-        const {title, body} = this.props;
+        const { title, body } = this.props;
         return (
             <Dialog
+                {...this.props}
                 title={this.renderTitle(title)}
                 modal={true}
                 open={true}

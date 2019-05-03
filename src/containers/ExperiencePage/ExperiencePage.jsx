@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Divider from 'material-ui/Divider';
-import { grey900 } from 'material-ui/styles/colors';
 
 import Dialog from '../../components/Dialog/Dialog';
 
@@ -35,7 +34,7 @@ class ExperiencePage extends Component {
     renderBody = firms => (
         <Grid fluid style={styles.grid}>
             {firms.map(firm => (
-                <Row key={firm}>
+                <Row key={firm.company}>
                     <Col lg={12}>
                         {firm.period}
                         <Divider style={styles.divider}/>
